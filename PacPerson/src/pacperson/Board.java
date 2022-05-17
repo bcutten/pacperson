@@ -1,7 +1,9 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class represents the board and contains all the game logic
+ * Ideas to make this better
+ * OOP: Pacperson class, Ghost class, Dot, Fruit
+ * Animation images stored in an array
+ * Update the timing
  */
 package pacperson;
 
@@ -19,6 +21,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
@@ -528,20 +531,22 @@ public class Board extends JPanel implements ActionListener {
 
     private void loadImages() {
 
-        ghost = new ImageIcon("images/ghost.png").getImage();
-        pacman1 = new ImageIcon("images/pacman.png").getImage();
-        pacman2up = new ImageIcon("images/up1.png").getImage();
-        pacman3up = new ImageIcon("images/up2.png").getImage();
-        pacman4up = new ImageIcon("images/up3.png").getImage();
-        pacman2down = new ImageIcon("images/down1.png").getImage();
-        pacman3down = new ImageIcon("images/down2.png").getImage();
-        pacman4down = new ImageIcon("images/down3.png").getImage();
-        pacman2left = new ImageIcon("images/left1.png").getImage();
-        pacman3left = new ImageIcon("images/left2.png").getImage();
-        pacman4left = new ImageIcon("images/left3.png").getImage();
-        pacman2right = new ImageIcon("images/right1.png").getImage();
-        pacman3right = new ImageIcon("images/right2.png").getImage();
-        pacman4right = new ImageIcon("images/right3.png").getImage();
+        URL url = Board.class.getResource("ghost.png");
+        ghost = new ImageIcon(url).getImage();
+       // System.out.println(ghost.getHeight(this));
+        pacman1 = new ImageIcon(Board.class.getResource("pacman.png")).getImage();
+        pacman2up = new ImageIcon(Board.class.getResource("up1.png")).getImage();
+        pacman3up = new ImageIcon(Board.class.getResource("up2.png")).getImage();
+        pacman4up = new ImageIcon(Board.class.getResource("up3.png")).getImage();
+        pacman2down = new ImageIcon(Board.class.getResource("down1.png")).getImage();
+        pacman3down = new ImageIcon(Board.class.getResource("down2.png")).getImage();
+        pacman4down = new ImageIcon(Board.class.getResource("down3.png")).getImage();
+        pacman2left = new ImageIcon(Board.class.getResource("left1.png")).getImage();
+        pacman3left = new ImageIcon(Board.class.getResource("left2.png")).getImage();
+        pacman4left = new ImageIcon(Board.class.getResource("left3.png")).getImage();
+        pacman2right = new ImageIcon(Board.class.getResource("right1.png")).getImage();
+        pacman3right = new ImageIcon(Board.class.getResource("right2.png")).getImage();
+        pacman4right = new ImageIcon(Board.class.getResource("right3.png")).getImage();
 
     }
 
@@ -596,7 +601,7 @@ public class Board extends JPanel implements ActionListener {
                     req_dy = 1;
                 } else if (key == KeyEvent.VK_ESCAPE && timer.isRunning()) {
                     inGame = false;
-                } else if (key == KeyEvent.VK_PAUSE) {
+                } else if (key == KeyEvent.VK_SPACE) {
                     if (timer.isRunning()) {
                         timer.stop();
                     } else {

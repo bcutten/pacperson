@@ -11,17 +11,32 @@
  */
 package pacperson;
 
-/**
- *
- * @author cutten
- */
-public class PacPerson {
+import java.awt.EventQueue;
+import javax.swing.JFrame;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class PacPerson extends JFrame {
+
+    public PacPerson() {
+        
+        initUI();
     }
     
+    private void initUI() {
+        
+        add(new Board());
+        
+        setTitle("PacPerson");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setSize(380, 420);
+        setLocationRelativeTo(null);
+    }
+
+    public static void main(String[] args) {
+
+        EventQueue.invokeLater(() -> {
+
+            var ex = new PacPerson();
+            ex.setVisible(true);
+        });
+    }
 }
