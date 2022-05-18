@@ -23,7 +23,7 @@ public class PacPerson extends JFrame {
     
     private void initUI() {
         
-        add(new Board());
+        add(new ThreadedBoard());
         
         setTitle("PacPerson");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
